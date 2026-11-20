@@ -20,6 +20,7 @@
         <span>约 3 分钟</span>
         <span>10 种人设</span>
       </div>
+      <p class="visit-pill" id="visit-pill" hidden>已有 <b id="busuanzi_value_site_uv">…</b> 人来测过</p>
       <button type="button" class="btn btn-start" id="btn-start">开始鉴定我的精神状态</button>
       <button type="button" class="btn btn-ghost" id="btn-resume" hidden>继续上次答题</button>
       <p class="hero-note">本测试纯属娱乐，玩梗全部为正向自嘲，不涉及任何心理评估。</p>
@@ -56,5 +57,22 @@
   <script src="js/data.js"></script>
   <script src="js/art.js"></script>
   <script src="js/app.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script>
+    // 不蒜子统计加载后展示人数；服务不可用时保持隐藏，不影响页面
+    (function () {
+      var pill = document.getElementById('visit-pill');
+      function check() {
+        var v = document.getElementById('busuanzi_value_site_uv');
+        if (v && v.textContent.trim() && v.textContent !== '…') {
+          pill.hidden = false;
+        }
+      }
+      window.addEventListener('load', function () {
+        setTimeout(check, 1200);
+        setTimeout(check, 3500);
+      });
+    })();
+  </script>
 </body>
 </html>
